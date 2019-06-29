@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Localservice} from '../sysgem/localservice';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'bm-nav',
@@ -9,7 +10,7 @@ import {Localservice} from '../sysgem/localservice';
 export class NavComponent implements OnInit {
   isAuth;
 
-  constructor(private http: Localservice) {
+  constructor(private http: Localservice, private router: Router) {
 
   }
 
@@ -19,6 +20,13 @@ export class NavComponent implements OnInit {
         this.isAuth = response;
       }
     );
+  }
+
+  logout() {
+    this.http.changeAuth(false);
+    this.http.token = '';
+    this.router.navigate(['']);
+
   }
 
 }

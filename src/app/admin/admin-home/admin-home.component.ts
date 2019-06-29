@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Localservice} from '../../sysgem/localservice';
 
 @Component({
   selector: 'bm-admin-home',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
+  token;
 
-  constructor() { }
+  constructor(private http: Localservice) {
+    this.token = http.token;
+  }
 
   ngOnInit() {
   }

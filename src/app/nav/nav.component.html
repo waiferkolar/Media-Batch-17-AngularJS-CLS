@@ -20,7 +20,7 @@
             Member
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#" *ngIf="isAuth">Logout</a>
+            <a class="dropdown-item" *ngIf="isAuth" (click)="logout()">Logout</a>
             <a class="dropdown-item" routerLink="user" *ngIf="!isAuth">Login</a>
             <a class="dropdown-item" routerLink="user/register" *ngIf="!isAuth">Register</a>
           </div>
