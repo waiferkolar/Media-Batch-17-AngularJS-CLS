@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'bm-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template: `
+    <bm-nav></bm-nav>
+    <router-outlet></router-outlet>`,
 })
 export class AppComponent {
   title = 'bm_cm_dm';
