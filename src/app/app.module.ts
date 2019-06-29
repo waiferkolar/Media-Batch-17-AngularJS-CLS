@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {BM_ROUTE} from './sysgem/bmroute';
 import {AppComponent} from './app.component';
@@ -27,6 +28,7 @@ import {Localservice} from './sysgem/localservice';
   imports: [
     BrowserModule,
     HttpClientModule,
+    ReactiveFormsModule,
     BM_ROUTE
   ],
   providers: [Localservice],
