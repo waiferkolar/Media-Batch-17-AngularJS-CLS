@@ -1,4 +1,29 @@
-<p>
-  admin-home works!
-</p>
-<p>Token : {{token}}</p>
+<div class="container my-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let doc of docs">
+      <div class="card">
+        <img src="{{doc.image}}" class="card-img-top" alt="..." style="height:150px;">
+        <div class="card-body">
+          <h5 class="card-title">{{doc.name}}</h5>
+          <p class="card-text">{{doc.description.substr(0, 100)}}</p>
+          <a href="#" class="btn btn-primary">{{doc.price}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Navigation-->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item">
+        <button class="page-link" (click)="goNext(-1)">Previous</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link">{{page}}</button>
+      </li>
+      <li class="page-item">
+        <button class="page-link" (click)="goNext(1)">Next</button>
+      </li>
+    </ul>
+  </nav>
+  <!--Navigation-->
+</div>

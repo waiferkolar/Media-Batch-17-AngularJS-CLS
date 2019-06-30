@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   form;
+  errmsg;
 
   constructor(private http: Localservice, private router: Router) {
   }
@@ -25,8 +26,10 @@ export class RegisterComponent implements OnInit {
   startRegister(data) {
     this.http.registerUser(data).subscribe(
       response => {
-        if (response != null) {
+        if (response.con) {
           this.router.navigate(['user']);
+        } else {
+          this.errmsg = response.data.errmsg;
         }
       },
       error => {

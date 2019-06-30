@@ -10,6 +10,7 @@ export class Localservice {
   link = 'http://localhost:3000/';
   registerUrl = this.link + 'user/register';
   loginUrl = this.link + 'user/login';
+  postUrl = this.link + 'admin/product/paginate';
   token;
   isAuth = new Subject<boolean>();
   authBool = this.isAuth.asObservable();
@@ -31,6 +32,15 @@ export class Localservice {
 
   loginUser(data) {
     return this.http.post(this.loginUrl, data).pipe(
+      map(
+        (response: any) => response
+      )
+    );
+  }
+
+  getPost(start, count) {
+    let bbc = this.postUrl + '/' + start + '/' + count;
+    return this.http.get(bbc).pipe(
       map(
         (response: any) => response
       )

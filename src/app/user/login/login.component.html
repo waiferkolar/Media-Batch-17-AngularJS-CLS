@@ -8,12 +8,26 @@
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" class="form-control" id="email" name="email" formControlName="email">
+        <small id="emailHelp" class="form-text text-danger"
+               *ngIf="form.get('email').hasError('required')">
+          Email File required!
+        </small>
+        <small id="emailHelp2" class="form-text text-danger"
+               *ngIf="form.get('email').hasError('email')">
+          Email is not valid!
+        </small>
       </div>
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" class="form-control" id="password" name="password" formControlName="password">
+        <small class="form-text text-danger"
+               *ngIf="form.get('password').hasError('required')">Password can't be blank
+        </small>
+        <small class="form-text text-danger"
+               *ngIf="form.get('password').hasError('minlength')">Password must be at least 6 chars
+        </small>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary">Login</button>
     </form>
   </div>
 </div>

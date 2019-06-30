@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {BM_ROUTE} from './sysgem/bmroute';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -12,6 +12,7 @@ import {RegisterComponent} from './user/register/register.component';
 import {AdminHomeComponent} from './admin/admin-home/admin-home.component';
 import {NavComponent} from './nav/nav.component';
 import {Localservice} from './sysgem/localservice';
+import {AuthInterceptor} from './sysgem/auth.interceptor';
 
 
 @NgModule({
@@ -31,7 +32,11 @@ import {Localservice} from './sysgem/localservice';
     ReactiveFormsModule,
     BM_ROUTE
   ],
-  providers: [Localservice],
+  providers: [Localservice, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
