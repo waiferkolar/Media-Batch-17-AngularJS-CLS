@@ -11,19 +11,21 @@
       </div>
     </div>
   </div>
-  <!--Navigation-->
-  <nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <button class="page-link" (click)="goNext(-1)">Previous</button>
-      </li>
-      <li class="page-item">
-        <button class="page-link">{{page}}</button>
-      </li>
-      <li class="page-item">
-        <button class="page-link" (click)="goNext(1)">Next</button>
-      </li>
-    </ul>
-  </nav>
-  <!--Navigation-->
+  <div class="row justify-content-center">
+    <!--Navigation-->
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <button class="page-link" (click)="goNext(-1)">Previous</button>
+        </li>
+        <li class="page-item">
+          <button class="page-link">{{page}}</button>
+        </li>
+        <li class="page-item">
+          <button class="page-link" (click)="goNext(1)">Next</button>
+        </li>
+      </ul>
+    </nav>
+    <!--Navigation-->
+  </div>
 </div>

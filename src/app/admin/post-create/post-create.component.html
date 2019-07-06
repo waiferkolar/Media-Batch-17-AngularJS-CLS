@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="col-md-8 mx-auto mt-5">
+    <h1 class="text-info text-center mb-5">Create Post</h1>
+    <form
+      [formGroup]="postFrom"
+      (ngSubmit)="postNow(postFrom.value)">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="category">Example select</label>
+            <select class="form-control" id="category" name="category" formControlName="category"
+            >
+              <option value="{{cat.id}}" *ngFor="let cat of cats; index as i;">{{cat.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="name" name="name" formControlName="name">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" name="price" formControlName="price">
+            <small class="form-text text-danger"></small>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="image">Image Link</label>
+            <input class="form-control" id="image" name="image" formControlName="image">
+            <small class="form-text text-danger"></small>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="desc">Description</label>
+            <textarea class="form-control" id="desc" rows="3" name="desc" formControlName="desc"></textarea>
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="postFrom.valid" class="btn btn-primary float-right">Create</button>
+    </form>
+  </div>
+</div>
