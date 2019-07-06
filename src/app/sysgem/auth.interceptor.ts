@@ -1,6 +1,7 @@
 import {Localservice} from './localservice';
 import {HttpInterceptor} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {Loki} from './loki';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -9,7 +10,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   intercept(req, next) {
-    let token = this.http.token;
+    let token = Loki.getAuth();
     let modiR = req.clone({
       headers: req.headers.set('Authorization', `Bearer ${token}`)
     });

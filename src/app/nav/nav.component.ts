@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Localservice} from '../sysgem/localservice';
 import {Router} from '@angular/router';
+import {Loki} from '../sysgem/loki';
 
 @Component({
   selector: 'bm-nav',
@@ -20,10 +21,12 @@ export class NavComponent implements OnInit {
         this.isAuth = response;
       }
     );
+    this.isAuth = Loki.isAuth();
   }
 
   logout() {
     this.http.changeAuth(false);
+    Loki.removeAuth();
     this.http.token = '';
     this.router.navigate(['']);
 

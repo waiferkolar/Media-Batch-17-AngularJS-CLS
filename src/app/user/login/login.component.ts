@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Localservice} from '../../sysgem/localservice';
 import {Router} from '@angular/router';
+import {Loki} from '../../sysgem/loki';
 
 @Component({
   selector: 'bm-login',
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
     this.http.loginUser(data).subscribe(
       response => {
         if (response.con) {
-          this.http.token = response.token;
+          Loki.saveAuth(response.token);
           this.http.changeAuth(response.con);
           this.router.navigate(['admin']);
         } else {

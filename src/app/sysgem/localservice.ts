@@ -11,6 +11,8 @@ export class Localservice {
   registerUrl = this.link + 'user/register';
   loginUrl = this.link + 'user/login';
   postUrl = this.link + 'admin/product/paginate';
+  catUrl = this.link + 'admin/cat/all';
+  imageUploadUrl = this.link + 'admin/image/upload';
   token;
   isAuth = new Subject<boolean>();
   authBool = this.isAuth.asObservable();
@@ -41,6 +43,22 @@ export class Localservice {
   getPost(start, count) {
     let bbc = this.postUrl + '/' + start + '/' + count;
     return this.http.get(bbc).pipe(
+      map(
+        (response: any) => response
+      )
+    );
+  }
+
+  getAllCat() {
+    return this.http.get(this.catUrl).pipe(
+      map(
+        (response: any) => response
+      )
+    );
+  }
+
+  uploadImage(data) {
+    return this.http.post(this.imageUploadUrl, data).pipe(
       map(
         (response: any) => response
       )
