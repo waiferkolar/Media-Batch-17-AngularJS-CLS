@@ -13,6 +13,9 @@ export class Localservice {
   postUrl = this.link + 'admin/product/paginate';
   catUrl = this.link + 'admin/cat/all';
   imageUploadUrl = this.link + 'admin/image/upload';
+  galleryUrl = this.link + 'admin/gallery/all';
+  productCreateurl = this.link + 'admin/product/create';
+  showNav = true;
   token;
   isAuth = new Subject<boolean>();
   authBool = this.isAuth.asObservable();
@@ -59,6 +62,22 @@ export class Localservice {
 
   uploadImage(data) {
     return this.http.post(this.imageUploadUrl, data).pipe(
+      map(
+        (response: any) => response
+      )
+    );
+  }
+
+  getAllGallery() {
+    return this.http.get(this.galleryUrl).pipe(
+      map(
+        (response: any) => response
+      )
+    );
+  }
+
+  createProduct(data) {
+    return this.http.post(this.productCreateurl, data).pipe(
       map(
         (response: any) => response
       )

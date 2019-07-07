@@ -8,10 +8,14 @@ import {AdminHomeComponent} from '../admin/admin-home/admin-home.component';
 import {PostCreateComponent} from '../admin/post-create/post-create.component';
 import {AdminGalleryComponent} from '../admin/admin-gallery/admin-gallery.component';
 import {GalleryCreateComponent} from '../admin/gallery-create/gallery-create.component';
+import {LoadingComponent} from '../loading/loading.component';
 
 const BMROUTE: Routes = [
   {
     path: '', component: HomeComponent
+  },
+  {
+    path: 'loading', component: LoadingComponent
   },
   {
     path: 'user', component: UserComponent, children: [

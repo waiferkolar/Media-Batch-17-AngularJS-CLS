@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {Localservice} from '../../sysgem/localservice';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'bm-post-create',
@@ -11,7 +12,7 @@ export class PostCreateComponent implements OnInit {
   postFrom;
   cats;
 
-  constructor(private http: Localservice) {
+  constructor(private http: Localservice, private router: Router) {
     http.getAllCat().subscribe(
       response => {
         if (response.con) {
@@ -37,7 +38,18 @@ export class PostCreateComponent implements OnInit {
   }
 
   postNow(data) {
+    this.http.createProduct(data).subscribe(
+      response => {
+        if (response.con) {
+          this.router.navigate(['admin']);
+        } else {
+          alert('Something is not right');
+        }
+      },
+      error => {
 
+      }
+    );
   }
 
 }

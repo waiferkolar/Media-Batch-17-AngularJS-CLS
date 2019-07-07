@@ -41,7 +41,7 @@
           </div>
         </div>
       </div>
-      <button type="submit" [disabled]="postFrom.valid" class="btn btn-primary float-right">Create</button>
+      <button type="submit" [disabled]="!postFrom.valid" class="btn btn-primary float-right">Create</button>
     </form>
   </div>
 </div>

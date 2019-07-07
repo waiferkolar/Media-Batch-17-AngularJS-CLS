@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ImageCroppedEvent} from 'ngx-image-cropper';
 import {Localservice} from '../../sysgem/localservice';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'bm-gallery-create',
@@ -9,7 +10,7 @@ import {Localservice} from '../../sysgem/localservice';
 })
 export class GalleryCreateComponent implements OnInit {
 
-  constructor(private http: Localservice) {
+  constructor(private http: Localservice, private router: Router) {
   }
 
   ngOnInit() {
@@ -47,7 +48,7 @@ export class GalleryCreateComponent implements OnInit {
     this.http.uploadImage(formData).subscribe(
       response => {
         if (response.con) {
-          alert('success');
+          this.router.navigate(['admin/gallery']);
         } else {
           console.log('Image Upload Fail');
         }
