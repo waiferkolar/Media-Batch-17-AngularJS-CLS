@@ -35,6 +35,17 @@
             <a class="dropdown-item" routerLink="/admin/gallery">Gallery</a>
           </div>
         </li>
+        <li class="nav-item dropdown" *ngIf="isAuth">
+          <a class="nav-link dropdown-toggle" href="#" id="nbdd" role="button" data-toggle="dropdown"
+             aria-haspopup="true" aria-expanded="false">
+            <span *ngIf="isFont">Chinese</span>
+            <span *ngIf="!isFont">Myanmar</span>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="nbdd">
+            <button class="dropdown-item" (click)="toggleFontNow(false)">Myanmar</button>
+            <button class="dropdown-item" (click)="toggleFontNow(true)">Chinese</button>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="admin" tabindex="-1" *ngIf="isAuth">Admin Panel</a>
         </li>

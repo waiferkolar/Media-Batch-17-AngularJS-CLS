@@ -10,12 +10,17 @@ import {Loki} from '../sysgem/loki';
 })
 export class NavComponent implements OnInit {
   isAuth;
+  isFont;
 
   constructor(private http: Localservice, private router: Router) {
-
   }
 
   ngOnInit() {
+    this.http.isFontBool.subscribe(
+      response => {
+        this.isFont = response;
+      }
+    );
     this.http.authBool.subscribe(
       response => {
         this.isAuth = response;
@@ -30,6 +35,10 @@ export class NavComponent implements OnInit {
     this.http.token = '';
     this.router.navigate(['']);
 
+  }
+
+  toggleFontNow(bol) {
+    this.http.toggleFon(bol);
   }
 
 }

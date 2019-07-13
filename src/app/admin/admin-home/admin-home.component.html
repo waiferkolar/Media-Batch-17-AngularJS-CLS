@@ -1,4 +1,4 @@
-<div class="container my-5">
+<div class="container my-5" *ngIf="hide">
   <div class="row">
     <div class="col-md-4" *ngFor="let doc of docs">
       <div class="card">
@@ -29,3 +29,5 @@
     <!--Navigation-->
   </div>
 </div>
+
+<bm-loading *ngIf="!hide"></bm-loading>

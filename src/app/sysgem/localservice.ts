@@ -18,13 +18,20 @@ export class Localservice {
   showNav = true;
   token;
   isAuth = new Subject<boolean>();
+  isFont = new Subject<boolean>();
   authBool = this.isAuth.asObservable();
+  isFontBool = this.isFont.asObservable();
 
   constructor(private http: HttpClient) {
+
   }
 
   changeAuth(val: boolean) {
     this.isAuth.next(val);
+  }
+
+  toggleFon(val: boolean) {
+    this.isFont.next(val);
   }
 
   registerUser(data) {

@@ -11,6 +11,7 @@ export class AdminHomeComponent implements OnInit {
   docs;
   page;
   pages;
+  hide = false;
 
   constructor(private http: Localservice) {
     this.token = http.token;
@@ -22,6 +23,7 @@ export class AdminHomeComponent implements OnInit {
         this.docs = response.docs;
         this.page = response.page;
         this.pages = response.pages;
+        this.hide = true;
       },
       error => {
         console.log(error);
@@ -30,6 +32,7 @@ export class AdminHomeComponent implements OnInit {
   }
 
   goNext(np) {
+    this.hide = false;
     console.log(np);
     let pp = this.page + np;
     if (pp > 0 && pp <= this.pages) {
@@ -38,6 +41,7 @@ export class AdminHomeComponent implements OnInit {
           this.docs = response.docs;
           this.page = response.page;
           this.pages = response.pages;
+          this.hide = true;
         },
         error => {
           console.log(error);

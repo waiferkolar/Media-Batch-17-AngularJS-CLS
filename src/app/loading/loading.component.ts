@@ -7,17 +7,24 @@ import {Localservice} from '../sysgem/localservice';
   styleUrls: ['./loading.component.css']
 })
 export class LoadingComponent implements OnInit, OnDestroy {
+  mm = 'ျမန္မာကြ';
+  isFont;
 
   constructor(private http: Localservice) {
-    http.showNav = false;
+    //http.showNav = false;
+
   }
 
   ngOnInit() {
+    this.http.isFontBool.subscribe(
+      response => {
+        this.isFont = response;
+      }
+    );
+
     let width = window.outerWidth;
     let height = window.outerHeight;
     let loadimg = document.querySelector('#load-img');
-    loadimg.setAttribute('width', width + 'px');
-    loadimg.setAttribute('height', (height) + 'px');
   }
 
   ngOnDestroy(): void {

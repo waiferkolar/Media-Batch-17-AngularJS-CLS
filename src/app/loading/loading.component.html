@@ -1,3 +1,7 @@
 <div id="mycon">
-  <img src="../../assets/imgs/loading.gif" class="img-fluid" id="load-img"/>
+  <!--<img src="../../assets/imgs/loading.gif" id="load-img"/>-->
+  <h1 *ngIf="!isFont">Hello Myanmar</h1>
+  <h1 *ngIf="isFont">Hello Chinese</h1>
+  <h1 [ngClass]="isFont ? 'uni' : 'zaw'"> {{mm | mz : isFont}}</h1>
+
 </div>

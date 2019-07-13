@@ -1,5 +1,12 @@
-#mycon {
-  background: #1D1D1D;
-  height: 100vh;
-  width: 100%;
+#load-img {
+  display: block;
+  margin: 25px auto;
+}
+
+.zaw {
+  font-family: Zawgyi-One;
+}
+
+.uni {
+  font-family: "American Typewriter";
 }
